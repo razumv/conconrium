@@ -10,7 +10,7 @@ pass="123456\r\n"
 #13 17,18,19,20,21   * * * /home/user/concordium/t1.sh
 
 #Update conc part with your username
-cd /home/conc/Documents/concordium-software
+cd /home/user/concordium/
 
 for i in {1..121}
 do
@@ -18,7 +18,7 @@ do
 #Simple TX
 /usr/bin/expect << EOF  >> T1.log
 set timeout -1
-spawn ./concordium-client --grpc-ip 127.0.0.01 --grpc-port 10000 transaction send-gtu --amount 0.1 --receiver "$receiver" --sender "$sender" --no-confirm --no-wait
+spawn concordium-client --grpc-ip 127.0.0.01 --grpc-port 10000 transaction send-gtu --amount 0.1 --receiver "$receiver" --sender "$sender" --no-confirm --no-wait
 expect "Enter password for signing key:"
 send -- $pass
 expect eof
