@@ -7,7 +7,7 @@ sender="3DRttEtaofdfmtt8PnP7SsWBjN9SBFUcdRzwi3wWPj9DSXY3Rp"
 pass="123456\r\n"
 
 #cron sample. 
-#13 17,18,19,20,21   * * * /home/conc/Documents/concordium-software/T1.sh
+#13 17,18,19,20,21   * * * /home/razumv/concordium/t1.sh
 
 #Update conc part with your username
 cd /home/conc/Documents/concordium-software
