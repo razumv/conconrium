@@ -18,7 +18,7 @@ do
 #Simple TX
 /usr/bin/expect << EOF  >> T1.log
 set timeout -1
-spawn concordium-client --grpc-ip 127.0.0.01 --grpc-port 10000 transaction send-gtu --amount 0.001 --receiver "$receiver" --sender "$sender" --no-confirm --no-wait
+spawn /usr/local/bin/concordium-client --grpc-ip 127.0.0.01 --grpc-port 10000 transaction send-gtu --amount 0.0001 --receiver "$receiver" --sender "$sender" --no-confirm --no-wait
 expect "Enter password for signing key:"
 send -- $pass
 expect eof
