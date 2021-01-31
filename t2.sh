@@ -18,7 +18,7 @@ date2=`date`
 echo "RUN $i"
 /usr/bin/expect << EOF  >> $date.log
 set timeout -1
-spawn concordium-client --grpc-ip  127.0.0.01 --grpc-port 10000 transaction send-gtu-encrypted --receiver "$receiver" --amount 0.001 --sender "$sender" --no-confirm
+spawn /usr/local/bin/concordium-client --grpc-ip  127.0.0.01 --grpc-port 10000 transaction send-gtu-encrypted --receiver "$receiver" --amount 0.0001 --sender "$sender" --no-confirm
 expect "Enter password for decrypting the secret encryption key:"
 send -- $pass
 expect "Enter password for signing key:"
