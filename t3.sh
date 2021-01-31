@@ -21,7 +21,7 @@ echo "RUN $i"
 #Simple TX
 /usr/bin/expect << EOF  >> T3.log
 set timeout -1
-spawn concordium-client --grpc-ip 127.0.0.01 --grpc-port 10000 transaction send-gtu --amount 0.001 --receiver "$receiver" --sender "$sender" --no-confirm
+spawn /usr/local/bin/concordium-client --grpc-ip 127.0.0.01 --grpc-port 10000 transaction send-gtu --amount 0.0001 --receiver "$receiver" --sender "$sender" --no-confirm
 expect "Enter password for signing key:"
 send -- $pass
 expect eof
@@ -30,7 +30,7 @@ EOF
 #Shielded TX
 /usr/bin/expect << EOF  >> T3.log
 set timeout -1
-spawn concordium-client --grpc-ip 127.0.0.01 --grpc-port 10000 transaction send-gtu-encrypted --receiver "$receiver" --amount 0.001 --sender "$sender" --no-confirm
+spawn /usr/local/bin/concordium-client --grpc-ip 127.0.0.01 --grpc-port 10000 transaction send-gtu-encrypted --receiver "$receiver" --amount 0.0001 --sender "$sender" --no-confirm
 expect "Enter password for decrypting the secret encryption key:"
 send -- $pass
 expect "Enter password for signing key:"
@@ -41,7 +41,7 @@ EOF
 #Shielding amount
 /usr/bin/expect << EOF  >> T3.log
 set timeout -1
-spawn concordium-client --grpc-ip  127.0.0.01 --grpc-port 10000 account encrypt --amount 0.1 --sender "$sender" --no-confirm
+spawn /usr/local/bin/concordium-client --grpc-ip  127.0.0.01 --grpc-port 10000 account encrypt --amount 0.1 --sender "$sender" --no-confirm
 expect "Enter password for signing key:"
 send -- $pass2
 expect eof
@@ -50,7 +50,7 @@ EOF
 #Unshielding amout
 /usr/bin/expect << EOF  >> T3.log
 set timeout -1
-spawn concordium-client --grpc-ip  127.0.0.01 --grpc-port 10000 account decrypt --amount 0.1 --sender "$sender" --no-confirm
+spawn /usr/local/bin/concordium-client --grpc-ip  127.0.0.01 --grpc-port 10000 account decrypt --amount 0.1 --sender "$sender" --no-confirm
 expect "Enter password for decrypting the secret encryption key:"
 send -- $pass
 expect "Enter password for signing key:"
